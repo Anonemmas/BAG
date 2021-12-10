@@ -24,6 +24,8 @@ export default function MyList(){
         getCountries()
     },[user])
 
+    console.log(user.visited)
+
     return (
         <div className="my-list">
             <div className="topNav">
@@ -36,22 +38,20 @@ export default function MyList(){
             
             <div className="countries-section">
                 { states && user.visited ? states.map((state, index) => (
-                        <div className="country" key={index}>
-                            <Link to={`/country/${state.name.common.toLowerCase()}`}>
-                                <img src={state.flags.svg} alt={state.name.common}/>
-                                <h3>{state.name.common}</h3>
-                                <p>
-                                    <span>Population: {addCommas(state.population)}</span>
-                                    <span>Capital: {state.capital ? state.capital : "-"}</span>
-                                </p>
-                            </Link>
-                            <div className="actions">
-                                {user.visited.includes(state) ? <img src={Trash} alt="trash icon" onClick={() => DeleteCountry(user.docId, state)}/>
-                                :<img src={Check} alt="check icon" onClick={() => AddCountry(user.docId, state)}/>}
-                                
-                                
-                            </div>
+                    <div className="country" key={index}>
+                        <Link to={`/country/${state.name.common.toLowerCase()}`}>
+                            <img src={state.flags.svg} alt={state.name.common}/>
+                            <h3>{state.name.common}</h3>
+                            <p>
+                                <span>Population: {addCommas(state.population)}</span>
+                                <span>Capital: {state.capital ? state.capital : "-"}</span>
+                            </p>
+                        </Link>
+                        <div className="actions">
+                            <img src={Check} alt="check icon" onClick={() => AddCountry(user.docId, state)
+                            .then(alert("Added Successfully"))}/>
                         </div>
+                    </div>
                 )): <p className="message">Please wait it's still loading</p>}
             </div>
         </div>
