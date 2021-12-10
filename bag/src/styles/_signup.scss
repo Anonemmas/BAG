@@ -1,0 +1,23 @@
+.signup-main{
+    @extend .login-main;
+
+    .form-container{
+        width: 350px;
+        h1{
+            padding-bottom: 0.5rem;
+        }
+        p{
+            padding-bottom: 1.5rem;
+            font-size: 12px;
+        }
+
+        .form{
+            input{
+                padding-left: 0;
+            }
+        }
+        .login{
+            @extend .register;
+        }
+    }
+}

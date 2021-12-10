@@ -1,0 +1,50 @@
+@import './variables';
+.sidebar{
+    width: 15%;
+    height: 100vh;
+    border-right: 1px solid $borderColor;
+    @include paddingTop();
+    padding-left: 2rem;
+    position: sticky;
+    top: 0;
+
+    .logo{
+        padding-bottom: 6vh;
+
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+    }
+
+    ul{
+        a{
+            text-decoration: none;
+            color: #000;
+            li{
+                padding-top: 1.5rem;
+                list-style: none;
+                font-weight: 600;
+            }
+        }
+    }
+    button{
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, -20px);
+        padding: 15px;
+        background: none;
+        border: 1px solid $borderColor;
+        border-radius: 6px;
+        cursor: pointer;
+        // font-size: 12px;
+    }
+}
+
+/* ---------------------------- Mobo View(max-width: 768px) ------------------------------------ */
+@media screen and (max-width: 768px) {
+    .sidebar{
+        display: none;
+    }
+}

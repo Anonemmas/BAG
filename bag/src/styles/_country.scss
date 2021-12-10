@@ -1,0 +1,119 @@
+@import './dashboard';
+
+.country-container{
+    @extend .dashboard-container;
+
+    .country-body{
+        @extend .dashboard-body;
+
+        .country-details{
+            padding-top: 20vh;
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: flex-start;
+
+            img{
+                height: 26vw;
+                width: 38vw;
+                object-fit: cover;
+                margin-right: 6vw;
+                border: 1px solid $borderColor;
+            }
+
+            .country-description{
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+
+                h2{
+                    padding-bottom: 2rem;
+                }
+
+                .one-by-one{
+                    display: grid;
+                    height: 180px;
+                    font-size: 14px;
+                    grid-template-columns: 1fr 1fr;
+                    
+                    span{
+                        padding-bottom: 1rem;
+                    }
+                }
+                #borders{
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    span{
+                        border: 1px solid $borderColor;
+                        margin-left: 1rem;
+                        padding: 5px;
+                        box-shadow: 0px 0px 7px 0px #fbf8f8;;
+                    }
+                }
+            }
+        }
+    }  
+}
+/* --------------------------- (Min-width: 769px and Max-width:1120px) ------------------ */
+@media screen and (min-width:769px) and (max-width:1120px) {
+    .country-container{
+        .country-body{
+            .country-details{
+                .country-description{
+                    .one-by-one{
+                        height: max-content;
+                    }
+                    p#borders{
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------- (Max-width: 768px) -------------------------------------- */
+@media screen and (max-width:768px) {
+    .country-container{
+        .country-body{
+            .topNav{
+                flex-direction: column-reverse;
+                
+                .page-title{
+                    display: block;
+                    padding-top: 3rem;
+                }
+            }
+
+            .country-details{
+                padding-top: 10vh;
+                display: flex;
+                flex-direction: column;
+
+                img{
+                    height: 52vw;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/*----------------------------- (Max-width: 520px) -------------------------------------- */
+
+@media screen and (max-width:520px) {
+    .country-details{
+        .country-description{
+            .one-by-one{
+                height: 100%!important;
+                grid-template-columns: 1fr!important;
+            }
+            p#borders{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+$backgroundThemeLight : #fff;
+$backgroundThemeDark: #000;
+$primaryColorLight: #000;
+$primaryColorDark:#fff;
+$borderColor: #e9e9e9;
+
+@mixin paddingTop {
+	padding-top: 5vh;
+}
