@@ -286,9 +286,7 @@
       grid-template-columns: repeat(auto-fill, 200px);
   width: 90%;
   margin: auto;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-items: center;
   grid-gap: 0rem 2rem;
 }
 
@@ -884,9 +882,7 @@
       grid-template-columns: repeat(auto-fill, 200px);
   width: 90%;
   margin: auto;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  justify-items: center;
   grid-gap: 0rem 2rem;
 }
 

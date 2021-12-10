@@ -69,7 +69,7 @@ export default function ToVisit(){
                             </Link>
                             <div className="actions">
                                 <img src={Trash} alt="trash icon" onClick={() => deleteCountry(state)}/>
-                                <img src={Check} alt="trash icon" onClick={() => handleAddVisited(state)}/>
+                                <img src={Check} alt="trash icon" onClick={() => handleAddVisited(state).then(alert('Added to Visited'))}/>
                             </div>
                         </div>
                 )): states !== undefined && states.length <= 0 ? <p className="message">You haven't Added any places to visit</p> : <p>Please wait while it's still loading</p>}
