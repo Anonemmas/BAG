@@ -1,8 +1,8 @@
-#BAG
+# BAG
 
 This is the country visit APP
 
-#HOW TO ACCESS IT
+# HOW TO ACCESS IT
 
 1. Open your local text editor
 2. Open terminal
