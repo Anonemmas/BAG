@@ -5,17 +5,22 @@ import Moon from "../../images/moon.svg"
 const DarkMode = () => {
     const [darkMode, setDarkMode] = useState(false)
 
+    /*
+    This is a function that sets on and off the dark mode the dark mode 
+    */
     const ActiveMode = async () => {
         setDarkMode(!darkMode)
 
         if(darkMode){
-            document.body.classList.add('light_Mode')
-            document.body.classList.remove('dark_Mode')
+            /*
+            * if darkMode is on, set the body class to 'dark_Mode' that has it's styles in styles.scss
+            * Also sets the localstorage item to the current mode for a user to keep their settings
+            */           
+            document.body.classList.replace('light_Mode','dark_Mode')  
             await localStorage.setItem('Theme', 'light_Mode')
         }
         else if(!darkMode){
-            document.body.classList.add('dark_Mode')
-            document.body.classList.remove('light_Mode')
+            document.body.classList.replace('dark_Mode', 'light_Mode')
             await localStorage.setItem('Theme', 'dark_Mode')
         }
     }
@@ -41,6 +46,7 @@ const DarkMode = () => {
             </div>
         </div>
         <div className="darkmode-mobo" onClick={ActiveMode}>
+            {/* This conditionally renders the moon if lightmode and sun if darkmode on mobile */}
             {darkMode ? 
             <>
                 <img src={Light} alt="moon" />

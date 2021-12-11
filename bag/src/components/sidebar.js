@@ -24,6 +24,11 @@ export default function SideBar(){
                     </Link>
                 </ul>
             </div>
+            {/* This button takes the user to the login page
+            * while also removing the authenticated user from the localstorage
+             in the process
+            * signOut is a firebase function
+            */}
             <Link
             onClick={() => {
                 firebase.auth().signOut()

@@ -10,11 +10,11 @@ export default function Visited(){
     const {user} = useUser()
     const [states, setStates] = useState([])
 
-
+    // function that adds commas to thousandths numbers(e.g 1000 to 1,000)
     const addCommas = (number) =>{
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-
+    // Deletes the selected country from the countries the current user has visited
     const DeleteOne = async(state) => {
         const newFilter = states.filter(country => state !== country)
         setStates(newFilter)
@@ -23,6 +23,7 @@ export default function Visited(){
 
     useEffect(() => {
         const getCountries = () => {
+            // if the user is present then set the state to the user's visited countries
             if(user){
                 setStates(user.visited)
             }
@@ -30,6 +31,7 @@ export default function Visited(){
         getCountries()
     },[user.visited,user])
 
+    //This function clears all the countries in the visited array
     const clearCountries = async() => {
         setStates([])
         await DeleteAllCountries(user.docId)
@@ -48,6 +50,7 @@ export default function Visited(){
                 <button onClick={clearCountries} id="clear">Clear All Countries</button>
             </div>
             <div className="countries-section">
+                {/* Checks if there's a user and the visited array is not empty map over the array */}
                 { states !== undefined && states.length > 0 ? states.map((state, index) => (
                         <div className="country" key={index}>
                             <Link to={`/country/${state.name.common.toLowerCase()}`}>
@@ -62,7 +65,8 @@ export default function Visited(){
                                 <img src={Trash} alt="trash icon" onClick={() => DeleteOne(state)}/>
                             </div>
                         </div>
-                )): states !== undefined && states.length <= 0 ? <p className="message">You haven't visited any places</p> : <p className="message">Please wait while it's still loading</p>}
+                )): states !== undefined && states.length <= 0 ?  // if there's a states array and it is empty
+                 <p className="message">You haven't visited any places</p> : <p className="message">Please wait while it's still loading</p>}
             </div>
         </div>
     )

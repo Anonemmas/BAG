@@ -29,9 +29,9 @@ function App() {
                 <Dashboard />
               </ProtectedRoute>
 
-              <Route path={ROUTES.COUNTRY} exact>
+              <ProtectedRoute user={user} path={ROUTES.COUNTRY} exact>
                 <Country />
-              </Route>
+              </ProtectedRoute>
 
               <Route path={ROUTES.LOGIN}>
                 <Login />
@@ -41,13 +41,13 @@ function App() {
                 <SignUp />
               </Route>
 
-              <Route path={ROUTES.TOVISIT}>
+              <ProtectedRoute user={user} path={ROUTES.TOVISIT}>
                 <ToVisit />
-              </Route>
+              </ProtectedRoute>
 
-              <Route path={ROUTES.VISITED}>
+              <ProtectedRoute user={user} path={ROUTES.VISITED}>
                 <Visited />
-              </Route>
+              </ProtectedRoute>
 
               <Route>
                 <NotFound />

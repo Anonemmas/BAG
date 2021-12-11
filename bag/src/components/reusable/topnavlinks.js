@@ -10,6 +10,7 @@ export default function TopNavLinks({user}){
             <div className="topNav-links">
                 <DarkMode />
                 <img id="bell" src={Bell} alt="bell icon"/>
+                {/* If there's a user then render the user's firstname */}
                 {user &&
                 <div className="user-info">
                     <span>Hey, {user.FirstName}</span>

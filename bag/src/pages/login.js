@@ -11,21 +11,25 @@ export default function Login(){
     const [error, setError] = useState("")
     const {firebase} = useContext(FirebaseContext)
     const history = useHistory()
-    const [valid, setValid] = useState(false)
+    const [Isvalid, setIsValid] = useState(false)
 
+    // This tracks the onChange event on the inputs for email and password and makes it a controlled form
     const handleChange = (e) => {
         const {name,value} = e.target
         setUser(prev => ({...prev, [name]:value}))
     }
-
+    
+    //Verifies if there's and email and password for form validation
     useEffect(() => {
-        setValid(user.Password && user.Email ? true : false)
+        setIsValid(user.Password && user.Email ? true : false)
     },[user])
 
+    // This function calls the firebase authentication and passes in the email and password to signIN
     const handleLogin = async(e) => {
         e.preventDefault()
         setError("")
         try{
+            //if the email and password are valid the user is redirected to the main page
             await firebase.auth().signInWithEmailAndPassword(user.Email, user.Password)
             history.push(ROUTES.DASHBOARD)
 
@@ -61,7 +65,7 @@ export default function Login(){
                         <img src={Password} alt="Password icon"/>
                     </div>
                     <input
-                        disabled={!valid}
+                        disabled={!Isvalid}
                         className="submit" 
                         type="submit"
                         value="Login"
