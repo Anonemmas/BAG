@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import './styles/styles.css'
-import reportWebVitals from './reportWebVitals';
 import {FirebaseContextProvider} from "./context/Firebase"
 
 ReactDOM.render(
@@ -14,5 +13,3 @@ ReactDOM.render(
   </FirebaseContextProvider>,
   document.getElementById('root')
 );
-
-reportWebVitals();

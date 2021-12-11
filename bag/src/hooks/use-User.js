@@ -1,3 +1,5 @@
+//This is a custom hook that tracks the logged in user
+
 import { useState, useEffect, useContext } from "react";
 import { getUserByUserId } from '../services/Firebase';
 import { userContext } from "../context/userContext";
@@ -10,10 +12,11 @@ export default function useUser(){
 
     useEffect(() => {
         async function getUserObjByUserId(){
-            const [response] = await getUserByUserId(user.uid)
+            const [response] = await getUserByUserId(user.uid) // this function is explained in the services
             setActiveUser({...response})
-            
-            const currentUser = firebase.auth().currentUser
+
+            //Current user is a variable provided from firebase authentication that tracks the current user 
+            const currentUser = firebase.auth().currentUser 
                 if(currentUser & !currentUser.displayName){
                     currentUser.updateProfile({
                         displayName:activeUser.username
