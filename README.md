@@ -18,8 +18,8 @@ If installed proceed with these steps
 1. Open your text editor
 2. Open terminal
 3. Run 'git clone https://github.com/Anonemmas/BAG.git'
-4. Then run 'cd bag'
-5. Then run 'cd bag' once more
+4. Then run 'cd BAG'
+5. Then run 'cd bag'
 5. To install npm run 'npm install'
 6. To run application run 'npm start'
 
