@@ -72,7 +72,7 @@ export default function SecondSection({states, selectValue}){
             )/*if the search is not empty and there are no results found from the search*/
             : filteredCountries.length <= 0 && search !== "" ?
                 <div className="search-results">
-                    <p>No results found.</p>
+                    <p>No results found</p>
                 </div>
             : null
             }
