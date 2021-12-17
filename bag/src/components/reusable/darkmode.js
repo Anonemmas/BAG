@@ -16,11 +16,13 @@ const DarkMode = () => {
             * if darkMode is on, set the body class to 'dark_Mode' that has it's styles in styles.scss
             * Also sets the localstorage item to the current mode for a user to keep their settings
             */           
-            document.body.classList.replace('light_Mode','dark_Mode')  
+            document.body.classList.add('light_Mode')
+            document.body.classList.remove('dark_Mode')
             await localStorage.setItem('Theme', 'light_Mode')
         }
         else if(!darkMode){
-            document.body.classList.replace('dark_Mode', 'light_Mode')
+            document.body.classList.add('dark_Mode')
+            document.body.classList.remove('light_Mode') 
             await localStorage.setItem('Theme', 'dark_Mode')
         }
     }
