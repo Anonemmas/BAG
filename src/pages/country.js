@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { useParams } from "react-router-dom"
 import SideBar from "../components/sidebar"
 import TopNavLinks from "../components/reusable/topnavlinks"
 import Back from "../images/back.svg"
@@ -9,15 +9,25 @@ import useUser from "../hooks/use-User"
 export default function Country(){
 
     const [state, setState] = useState({})
+    const [invalid, setInvalid] = useState(false)
     const {name} = useParams()
     const {user} = useUser()
 
     let history = useHistory()
 
     const getCountry = async() => {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
-        const state = await response.json()
-        setState([...state])
+        try{
+            const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+            let state = await response.json()
+            if(state && state[0].name.common){
+            setState(state)
+            }
+        }
+        catch(error){
+                console.log(error.message)
+                // history.push('/notfound')
+                setInvalid(true)
+        }
     }
 
     const addCommas = (number) =>{
@@ -27,6 +37,8 @@ export default function Country(){
     useEffect(() => {
         getCountry()
     }, [])
+
+    console.log(invalid)
 
     return (
         <div className="country-main">
@@ -54,10 +66,10 @@ export default function Country(){
                                 <span><strong>Capital:</strong> {state[0].capital ? state[0].capital : "-" }</span>
                                 <span><strong>Population:</strong> {addCommas(state[0].population)}</span>
                                 <span><strong>Region:</strong> {state[0].region}</span>
-                                <span><strong>Sub Region:</strong> {state[0].subRegion ? state[0].subRegion : "-" }</span>
+                                <span><strong>Sub Region:</strong> {state[0].subregion ? state[0].subregion : "-" }</span>
                                 <span><strong>Alt Spelling:</strong> {state[0].altSpellings[0]}</span>
                                 <span><strong>Top Level Domain:</strong> {state[0].tld ? state[0].tld : "-" }</span>
-                                <span><strong>Sub Region:</strong> {state[0].subregion}</span>
+                                <span><strong>Timezone:</strong> {state[0].timezones[0]}</span>
                             </div>
                             <p id="borders"><strong>Border Countries: </strong>
                                 {state[0].borders ? state[0].borders.map((country, index) => (
@@ -66,7 +78,7 @@ export default function Country(){
                             </p>
                         </div>
                     </div>
-                    :<p>Please wait still loading</p>}
+                    : invalid ? <p className="message">There are no countries under this name</p> :<p>Please wait still loading</p>}
                 </div>
             
             </div>
