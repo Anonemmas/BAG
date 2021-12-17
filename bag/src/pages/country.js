@@ -60,7 +60,7 @@ export default function Country(){
                                 <span><strong>Sub Region:</strong> {state[0].subregion ? state[0].subregion : "-" }</span>
                                 <span><strong>Alt Spelling:</strong> {state[0].altSpellings[0]}</span>
                                 <span><strong>Top Level Domain:</strong> {state[0].tld ? state[0].tld : "-" }</span>
-                                <span>Timezone:</strong>{state[0].timezones[0]}</span>
+                                <span>Timezone:<strong>{state[0].timezones[0]}</strong></span>
                             </div>
                             <p id="borders"><strong>Border Countries: </strong>
                                 {state[0].borders ? state[0].borders.map((country, index) => (
