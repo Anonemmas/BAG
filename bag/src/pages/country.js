@@ -57,7 +57,7 @@ export default function Country(){
                                 <span><strong>Capital:</strong> {state[0].capital ? state[0].capital : "-" }</span>
                                 <span><strong>Population:</strong> {addCommas(state[0].population)}</span>
                                 <span><strong>Region:</strong> {state[0].region}</span>
-                                <span><strong>Sub Region:</strong> {state[0].subRegion ? state[0].subRegion : "-" }</span>
+                                <span><strong>Sub Region:</strong> {state[0].subregion ? state[0].subregion : "-" }</span>
                                 <span><strong>Alt Spelling:</strong> {state[0].altSpellings[0]}</span>
                                 <span><strong>Top Level Domain:</strong> {state[0].tld ? state[0].tld : "-" }</span>
                                 <span><strong>Sub Region:</strong> {state[0].subregion}</span>
