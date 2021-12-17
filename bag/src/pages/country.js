@@ -70,6 +70,7 @@ export default function Country(){
                                 <span><strong>Alt Spelling:</strong> {state[0].altSpellings[0]}</span>
                                 <span><strong>Top Level Domain:</strong> {state[0].tld ? state[0].tld : "-" }</span>
                                 <span>Timezone:<strong>{state[0].timezones[0]}</strong></span>
+                                <span><strong>Currency:</strong> {Object.keys(state[0].currencies)[0]}</span>
                             </div>
                             <p id="borders"><strong>Border Countries: </strong>
                                 {state[0].borders ? state[0].borders.map((country, index) => (
