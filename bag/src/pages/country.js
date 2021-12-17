@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { useParams } from "react-router-dom"
 import SideBar from "../components/sidebar"
 import TopNavLinks from "../components/reusable/topnavlinks"
 import Back from "../images/back.svg"
