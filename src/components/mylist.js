@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react"
 import {Link} from "react-router-dom"
 import TopNavLinks from "./reusable/topnavlinks"
-import Trash from "../images/trash.svg"
 import Check from "../images/check.svg"
 import useUser from "../hooks/use-User"
 import SecondSection from "./reusable/secondsection"
-import { AddCountry, DeleteCountry } from "../services/Firebase"
+import { AddCountry } from "../services/Firebase"
 
 export default function MyList(){
     const [states, setStates] = useState([])
@@ -23,8 +22,6 @@ export default function MyList(){
         }
         getCountries()
     },[user])
-
-    console.log(user.visited)
 
     return (
         <div className="my-list">
@@ -49,7 +46,7 @@ export default function MyList(){
                         </Link>
                         <div className="actions">
                             <img src={Check} alt="check icon" onClick={() => AddCountry(user.docId, state)
-                            .then(alert("Added Successfully"))}/>
+                            .then(alert("Added to Planning successfully"))}/>
                         </div>
                     </div>
                 )): <p className="message">Please wait it's still loading</p>}

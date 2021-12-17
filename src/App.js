@@ -1,4 +1,4 @@
-import React, { lazy, Suspense} from 'react';
+import React, { lazy, Suspense, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import * as ROUTES from "./constants/routes"
 import {UserContextProvider} from "./context/userContext"
@@ -15,6 +15,15 @@ const Visited = lazy(() => import ('./pages/visited'));
 
 function App() {
   const {user} = useAuthListener()
+
+  useEffect(() => {
+    if(localStorage.getItem('Theme') === 'light_Mode'){
+        document.body.classList.add('light_Mode')
+    }
+    else if(localStorage.getItem('Theme') === 'dark_Mode'){
+        document.body.classList.add('dark_Mode')
+    }
+}, [])
   return (
     <UserContextProvider>
       <div className="App">

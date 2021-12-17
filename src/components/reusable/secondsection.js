@@ -16,7 +16,7 @@ export default function SecondSection({states, selectValue}){
         if(searchWord === ''){
             setFilteredCountries([])
         }
-        else if(filteredCountries){
+        else if(searchWord){
             setFilteredCountries(newFilter)
         }
     }
@@ -61,7 +61,7 @@ export default function SecondSection({states, selectValue}){
             )
             : filteredCountries.length <= 0 && search !== "" ?
                 <div className="search-results">
-                    <p>No results found</p>
+                    <span style={{color:"#000"}}>No results found</span>
                 </div>
             : null
             }

@@ -32,8 +32,6 @@ export default function SignUp(){
                 displayName: newUser.Username
             })
 
-            console.log(createdUserResult.user)
-
             await firebase.firestore().collection('users').add({
                 userId: createdUserResult.user.uid,
                 FirstName:newUser.FirstName,
