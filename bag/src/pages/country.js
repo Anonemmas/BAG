@@ -9,16 +9,25 @@ import useUser from "../hooks/use-User"
 export default function Country(){
 
     const [state, setState] = useState({})
+    const [invalid, setInvalid] = useState(false)
     const {name} = useParams() // getting the name of the country from the url
     const {user} = useUser()
 
     let history = useHistory()
 
     // This function filters the selected country by adding the name param got from the route url variable
-    const getCountry = async() => {
-        const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
-        const state = await response.json()
-        setState([...state])
+   const getCountry = async() => {
+        try{
+            const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+            let state = await response.json()
+            if(state[0].length){
+                setState(state)
+            }
+        }
+        catch(error){
+                console.log(error.message)
+                setInvalid(true)
+        }
     }
     
     // function that adds commas to thousandths numbers(e.g 1000 to 1,000)
@@ -69,7 +78,7 @@ export default function Country(){
                             </p>
                         </div>
                     </div>
-                    :<p>Please wait still loading</p>}
+                    : invalid ? <p className="message">There are no countries under this name</p> :<p>Please wait still loading</p>}
                 </div>
             
             </div>
