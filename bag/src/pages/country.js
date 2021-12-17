@@ -20,7 +20,7 @@ export default function Country(){
         try{
             const response = await fetch(`https://restcountries.com/v3.1/name/${name}`)
             let state = await response.json()
-            if(state[0].length){
+            if(state && state[0].name.common){
                 setState(state)
             }
         }
