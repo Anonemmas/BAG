@@ -21,7 +21,6 @@ If installed proceed with these steps
 4. Then run 'cd BAG'
 5. Then run 'cd bag'
 5. To install npm run 'npm install'
-7. run 'npm install react-router-dom@5.2.0'
 6. To run application run 'npm start'
 
 7. (Optional) Send feedback at impanoemma@gmail.com
